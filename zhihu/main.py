@@ -1,3 +1,6 @@
 from scrapy import cmdline
+import os
 
-cmdline.execute("scrapy crawl zhihu".split())
+proj=os.path.join(os.getcwd(),'zhihu')
+os.chdir(proj)
+cmdline.execute("scrapy crawl neighbor ".split())

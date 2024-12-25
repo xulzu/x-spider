@@ -2,7 +2,7 @@
 
 1、 [豆瓣图书目录爬取](./douban/readme.md)：爬某种类型书籍的名称，简介，售价，实际价格，作者，出版商，出版日期
 
-入门级，简单的抓取网页分析html。beautifulsoup4
+入门级，简单的抓取静态网页分析html。beautifulsoup4
 
 # 免责声明
 

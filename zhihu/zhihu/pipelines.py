@@ -1,13 +1,10 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+from zhihu.items import PeopleItem, RelationItem
+from zhihu.persistence.sqlite import save_person, save_relation
 
-
-# useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
-
-
-class ZhihuPipeline:
+class ZhihuPipeline(object):
     def process_item(self, item, spider):
+        if isinstance(item, PeopleItem):
+            save_person(item)
+        elif isinstance(item, RelationItem):
+            save_relation(item)
         return item

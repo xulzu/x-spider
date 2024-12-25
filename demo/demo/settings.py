@@ -1,4 +1,4 @@
-# Scrapy settings for zhihu project
+# Scrapy settings for demo project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,22 +7,17 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "zhihu"
-LOG_LEVEL ='INFO'
-SPIDER_MODULES = ["zhihu.spiders"]
-NEWSPIDER_MODULE = "zhihu.spiders"
-DEPTH_LIMIT=0
-# 启用自动限速
-AUTOTHROTTLE_ENABLED = True
-# 初始下载延时
-AUTOTHROTTLE_START_DELAY = 2
-# 在高并发情况下的最大延时
-AUTOTHROTTLE_MAX_DELAY = 5
+BOT_NAME = "demo"
+
+SPIDER_MODULES = ["demo.spiders"]
+NEWSPIDER_MODULE = "demo.spiders"
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "zhihu (+http://www.yourdomain.com)"
+#USER_AGENT = "demo (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-# ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -36,30 +31,28 @@ AUTOTHROTTLE_MAX_DELAY = 5
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-COOKIES_ENABLED = False
+#COOKIES_ENABLED = False
+
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
-DEPTH_PRIORITY = 1
-SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue'
-SCHEDULER_MEMORY_QUEUE = 'scrapy.squeues.FifoMemoryQueue'
-DOWNLOAD_TIMEOUT=10
+
 # Override the default request headers:
-DEFAULT_REQUEST_HEADERS = {
-   "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-   "cookie":'_xsrf=lTKAScHEpxF8Pm6h0qD1aI5KO9e46WMv; BEC=8b4a1b0a664dd5d88434ef53342ae417; __zse_ck=004_Gqy0M7jJAX34D3jw1UjpND9qoCUccMb0RMV6zJzCY6GLpHn8UIVnSd/XtM/IZwyXwOsBy5Xo0P5V=rLqQqglFSRUR7b3Q6PRF0TKG2JTu4JWXb4zK6Zvhn9m1Jm3Qt2M-FzFXnOBE90T+SIQFEziYIJBWyLo3FOBeadE10hfGYMSIQdC2j2YsjLKtFMKQXSLPToNQvfHROppo87FcB5yN/Gyknv0uzN5bD+CmiyU0H4vnJ/83LqLRIvkgWGoiS2xj'
-}
+#DEFAULT_REQUEST_HEADERS = {
+#    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+#    "Accept-Language": "en",
+#}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
-   'scrapy.spidermiddlewares.depth.DepthMiddleware': 900,
-}
+#SPIDER_MIDDLEWARES = {
+#    "demo.middlewares.DemoSpiderMiddleware": 543,
+#}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-   # "zhihu.middlewares.CustomHeadersMiddleware": 543,
-}
+#DOWNLOADER_MIDDLEWARES = {
+#    "demo.middlewares.DemoDownloaderMiddleware": 543,
+#}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -69,9 +62,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   "zhihu.pipelines.ZhihuPipeline": 300,
-}
+#ITEM_PIPELINES = {
+#    "demo.pipelines.DemoPipeline": 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
